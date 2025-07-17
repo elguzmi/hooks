@@ -10,8 +10,9 @@ export const SimpleForm = () => {
 
   const {email, username} = formState;
 
-  const onInputChange = (event:ChangeEvent)=>{
-    console.log(event.target)
+  const onInputChange = (event:ChangeEvent<HTMLInputElement>)=>{
+    console.log(event.target.value)
+    //setFormState({...formState , })
     //console.log(event.target.value , event.target.name)
   }
    
