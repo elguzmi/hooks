@@ -12,11 +12,13 @@ const MultipleCustomHooks = () => {
         { isLoading  && 'Cargando' }
 
       </h1>
-
-
         <h2>
             { data?.name }
         </h2>
+
+        <button className="btn btn-primary">Anteriores</button>
+        <button className="btn btn-primary">Siguiente</button>
+
     </div>
   )
 }
