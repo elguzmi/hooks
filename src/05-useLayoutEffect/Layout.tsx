@@ -1,8 +1,7 @@
 import { useCounter, useFecth } from "../hooks/index";
-import { LoadingMessage } from "./LoadingMessage";
-import { PokemonCard } from "./PokemonCard";
+import { LoadingMessage, PokemonCard } from "../03-examples/index";
 
-const MultipleCustomHooks = () => {
+export const Layout = () => {
 
   // Cada vez que el valor del contador cambie, se va a ejecutar el useFecth
   const { counter, increment, decrement } = useCounter(1)
@@ -34,5 +33,3 @@ const MultipleCustomHooks = () => {
     </div>
   )
 }
-
-export default MultipleCustomHooks

@@ -8,6 +8,8 @@ interface PokemonRes {
     error: null |{ code: string , message :string }
 }
 
+const localCache : {[key:string]:ResponsePokemon} = {};
+
 
 export const useFecth = ( url :string ) => {
     const [state , setState] = useState<PokemonRes>({
@@ -27,6 +29,12 @@ export const useFecth = ( url :string ) => {
     }
 
     const getFetch = async ()=>{
+
+        if(localCache[url]){
+            console.log('from cache')
+            setState({ error : null ,hasError :false, isLoading: false , data : localCache[url] })
+            return
+        }
 
         setLoadingState();
         const response = await fetch(url)
@@ -52,6 +60,7 @@ export const useFecth = ( url :string ) => {
         setState({ error : null ,hasError :false, isLoading: false , data : data})
 
         // MANEJO DEL CACHE
+        localCache[url] = data;
 
     }
   
